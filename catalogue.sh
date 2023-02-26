@@ -20,9 +20,7 @@ cd /app
 print_head "unzip code"
 unzip /tmp/catalogue.zip &>>${log_file}
 
-cd /app
-
-print_head (Installing node js package)
+print_head (installing node js package)
 npm install &>>${log_file}
 
 print_head "accessing catalogue service"
