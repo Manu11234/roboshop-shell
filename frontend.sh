@@ -10,6 +10,9 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
 echo -e "\e[35menabling reverse proxy\e[0m"
+pwd
+ls -l
+
 cp configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 echo -e "\e[35menabling nginx\e[0m"
