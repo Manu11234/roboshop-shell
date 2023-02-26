@@ -11,7 +11,7 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
 echo -e "\e[35menabling reverse proxy\e[0m"
-cp ${pwd}/configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp ${code_dir}/configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 echo -e "\e[35menabling nginx\e[0m"
 systemctl enable nginx
