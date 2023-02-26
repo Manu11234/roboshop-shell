@@ -1,18 +1,18 @@
 Source common.sh
 
-print_head"downloading node js"
+print_head "downloading node js"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${log_file}
 
-print_head"installing node js"
+print_head "installing node js"
 yum install nodejs -y &>>${log_file}
 
-print_head"adding user"
+print_head "adding user"
 useradd roboshop
 mkdir /app
-print_head"removing app old content"
+print_head "removing app old content"
 rm -rf /app/* &>>${log_file}
 
-print_head"downloading roboshop catalogue code"
+print_head "downloading roboshop catalogue code"
 curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>${log_file}
 
 cd /app
@@ -36,11 +36,11 @@ systemctl enable catalogue &>>${log_file}
 print_head "restart catalogue"
 systemctl start catalogue &>>${log_file}
 
-print_head"configure mongodb"
+print_head "configure mongodb"
 cp ${code_dir}/configs/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
 
-print_head"Installing mongodb"
+print_head "Installing mongodb"
 yum install mongodb-org-shell -y &>>${log_file}
 
-print_head"Accessing schema"
+print_head "Accessing schema"
 mongo --host mongodb.manudevops.tech </app/schema/catalogue.js &>>${log_file}
